@@ -6,6 +6,7 @@
 </script>
 
 <div in:scale class='slide {end && 'end'}' on:click={ () => content.link ? window.open(content.link): ''}>
+
     {#if content.title}
         <h1>{@html content.title}</h1>
     {/if}
@@ -26,6 +27,7 @@
             <source src="{content.vid}" type="video/mp4">
         </video>
     {/if}
+
 </div>
 
 <style>

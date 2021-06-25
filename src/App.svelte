@@ -4,6 +4,9 @@
 
 	let pos = 0
 	let w = 0
+	let url = 'https://www.test.elev.nextkbh.dk'
+
+	setTimeout(()=>url='', 3000)
 
 	const handleKeydown = (event) => {
 		switch(event.key){
@@ -32,19 +35,27 @@
 <svelte:head><title>Digitalt Teknikfag 2020</title></svelte:head>
 <header style='width:{w}%'><title>Simon</title></header>
 <main>
-	{#if show}
-		<Slide content={words[pos]} end={words.length -1 == pos ? true : false}/>
+	{#if url}
+		<iframe src={url} title="url"></iframe>
 	{:else}
-		<p />
+		{#if show}
+			<Slide url={url} content={words[pos]} end={words.length -1 == pos ? true : false}/>
+		{:else}
+			<p />
+		{/if}
 	{/if}
 </main>
 
-
 <style>
-	:global(body, html){
+	:global(body){
 		margin:0;
 		padding:0;
 		box-sizing: border-box;		
+	}
+	iframe{
+		width:100vw;
+		height:100vh;
+		position:absolute;
 	}
 	header{
 		height:2vh;
